@@ -1,0 +1,57 @@
+<div class="content">
+
+  <app-header></app-header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-5">
+        <h2>Create User</h2>
+
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="row mt-4">
+            <div class="form-group col-md-6">
+              <label for="inputName">Name</label>
+              <input type="text" class="form-control"
+                formControlName="firstName"
+                id="inputName"
+                placeholder="First Name"
+              >
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="inputLastName">Last Name</label>
+              <input type="text" class="form-control"
+                formControlName="lastName"
+                id="inputLastName"
+                placeholder="Last Name"
+              >
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="form-group col-md-12">
+              <label for="inputLastName">Email</label>
+              <input type="text" class="form-control"
+                formControlName="email"
+                id="inputEmail"
+                placeholder="Email"
+              >
+            </div>
+          </div>
+
+          <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Create</button>
+
+        </form>
+      </div>
+
+      <div class="col-md-4">
+        <app-info-card
+          [userCount] = "userCount"
+          (getUsersEvent) = "getAllUsers()"
+        ></app-info-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

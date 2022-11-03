@@ -1,0 +1,13 @@
+Extensions
+    Prettier
+    Material Theme
+        Fira code
+    Lorem Ipsum
+    Brackets
+
+
+How to Run:
+npx create-expo-app demo-app
+npm run web --> for web
+npm run android --> for android
+npm run ios --> for ios
