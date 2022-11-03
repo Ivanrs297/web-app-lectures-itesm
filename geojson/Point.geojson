@@ -1,0 +1,10 @@
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [21.22, 71.23]
+    },
+    "properties": {
+        "name": "La Minerva"
+    }
+}

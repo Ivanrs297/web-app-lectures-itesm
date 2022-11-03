@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    crossorigin=""></script>
+
+    <style type="text/css">
+        #map {
+            width: 900px;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello Leaflet</h1>
+    <div id="map"></div>
+<script>
+    const initial_coords = [20.675357937192736, -103.38713385026401]
+    // 1 - 19
+    const map = L.map('map').setView(initial_coords, 18)
+
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var marker = L.marker([20.6740, -103.3871]).addTo(map)
+
+    var circle = L.circle([20.6740, -103.3871], {
+        color: "red",
+        fillColor: "red",
+        fillOpacity: 0.4,
+        radius: 50
+    }).addTo(map)
+
+    var polygon = L.polygon([
+        [20.6740, -103.3871],
+        [20.6754, -103.3872],
+        [20.6761, -103.3875],
+        [20.6761, -103.3900],
+        [20.6780, -103.3880],
+        [20.6740, -103.3871]
+    ]).addTo(map)
+
+    // Popups
+    marker.bindPopup("<p>Hello Marker</p>")
+    circle.bindPopup("<p>Hello Circle</p>")
+    polygon.bindPopup("<p>Hello Polygon</p>")
+
+    // var popoup = L.popup()
+    //     .setLatLng(initial_coords)
+    //     .setContent("Hello Custom Popup")
+    //     .openOn(map)
+
+    // function onMapClick(e) {
+    //     alert("Click on " + e.latlng)
+    //     console.log(e);
+    // }
+    // map.on('click', onMapClick)
+
+    // Popup on click with lat long
+    var popoup = L.popup()
+    function onMapClick(e) {
+        popoup
+            .setLatLng(e.latlng)
+            .setContent("Clicked" + e.latlng.toString())
+            .openOn(map)
+    }
+    map.on('click', onMapClick)
+    
+</script>
+</body>
+</html>
