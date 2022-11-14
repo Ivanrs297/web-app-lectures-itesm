@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
-     <title>Document</title>
+    <title>Danfo.JS</title>
 </head>
 
 <body>
+  <h1>Danfo.JS - Pandas-like JS</h1>
 
+  <div id="div1"></div>
+
+
+    <input type="file" id="file" name="file">
     <script>
-
-        const remote_url = './test.xlsx';
-        dfd.readExcel(remote_url).then(df => {
-            df.head().print()
+        const inputFile = document.querySelector('#file')
+        
+        inputFile.addEventListener("change", async () => {
+            const excelFile = inputFile.files[0]
+            dfd.readExcel(excelFile).then((df) => {
+                df.print()
+                df = df.drop({columns: "Class", axis: 1})
+                df.plot("div1").table()
+            })
         })
-
          
     </script>
 </body>
