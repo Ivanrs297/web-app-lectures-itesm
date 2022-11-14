@@ -1,7 +1,5 @@
 <div class="content">
-
   <app-header></app-header>
-
   <div class="container">
     <div class="row">
       <div class="col-md-8 mt-5">
@@ -49,6 +47,12 @@
           [userCount] = "userCount"
           (getUsersEvent) = "getAllUsers()"
         ></app-info-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <app-map></app-map>
       </div>
     </div>
   </div>

@@ -120,7 +120,7 @@ export default function App() {
     )
     if (hasStarted) {
       await Location.stopLocationUpdatesAsync(LOCATION_TASK_NAME)
-      console.log("Location tacking stopped")
+      console.log("Location tracking stopped")
     }
   }
 

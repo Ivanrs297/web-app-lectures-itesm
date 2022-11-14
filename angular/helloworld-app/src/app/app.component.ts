@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
 
   users: any[] = []
   userCount = 0
-
   ngOnInit(): void {
     const val = this.appService.testMethod()
     console.log("Value: ", val);

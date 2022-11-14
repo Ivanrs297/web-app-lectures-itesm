@@ -21,6 +21,7 @@ export class AppService {
     return this.users
   }
 
+
   // add a single user
   addUser(user: any){
     return this.users.push(user)
