@@ -1,7 +1,5 @@
 {
     "Route": {
       "title": { "string": {} },
-      "latitude":  { "regexp": "[A-Z][a-z]{5,10}" }}
-
+      "latitude":  { "regexp": "[A-Z][a-z]{5,10}" }
     }
-  }
